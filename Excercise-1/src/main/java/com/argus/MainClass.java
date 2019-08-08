@@ -17,7 +17,7 @@ public class MainClass {
         EntityManagerFactory emf = Persistence
                 .createEntityManagerFactory("HelloWorld");
         em = emf.createEntityManager();
-        Message msg;
+        HelloWorld msg;
         Scanner input = new Scanner(System.in);
         String c = "y";
         do {
@@ -27,7 +27,7 @@ public class MainClass {
                 case 1:
                     System.out.println("Enter Employee Name");
                     String name = input.next();
-                    msg = new Message(name);
+                    msg = new HelloWorld(name);
                     em.getTransaction().begin();
                     em.persist(msg);
                     em.getTransaction().commit();
@@ -35,12 +35,12 @@ public class MainClass {
                 case 2:
                     try {
                         em.getTransaction().begin();
-                        Query query = em.createQuery("SELECT e FROM Message e");
+                        Query query = em.createQuery("SELECT e FROM HelloWorld e");
                         List lst = query.getResultList();
                         Iterator it = lst.iterator();
                         while (it.hasNext()) {
-                            Message msg1;
-                            msg1 = (Message) it.next();
+                            HelloWorld msg1;
+                            msg1 = (HelloWorld) it.next();
                             System.out.println("Id:" + msg1.getId());
                             System.out.println(" Message:" + msg1.getName());
                         }

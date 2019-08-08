@@ -9,18 +9,18 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "helloworld")
-public class Message {
+public class HelloWorld {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    public Message() {
+    public HelloWorld() {
     }
     @Column
     private String name;
 
-    public Message(String name) {
+    public HelloWorld(String name) {
         this.name = name;
     }
 
